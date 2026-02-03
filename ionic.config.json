@@ -1,0 +1,7 @@
+{
+  "name": "localhelp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
