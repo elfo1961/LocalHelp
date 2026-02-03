@@ -3,13 +3,18 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { ConnectivityService } from './services/connectivity/connectivity.service';
 import { AsyncPipe } from '@angular/common';
+import { OfflineBannerComponent } from './components/offline-banner/offline-banner.component';
 
-
-@Component({
+  @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet, AsyncPipe],
+  imports: [
+    IonApp,
+    IonRouterOutlet,
+    AsyncPipe,
+    OfflineBannerComponent
+  ],
 })
 export class AppComponent {
 
