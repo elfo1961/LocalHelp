@@ -1,3 +1,10 @@
+
+@if (!(connectivity.onlineChanges$ | async)) {
+  <div class="offline-banner">
+    You are currently offline
+  </div>
+}
+
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

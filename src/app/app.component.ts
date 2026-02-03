@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
+import { ConnectivityService } from './services/connectivity/connectivity.service';
+import { AsyncPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet],
+  imports: [IonApp, IonRouterOutlet, AsyncPipe],
 })
 export class AppComponent {
 
@@ -13,7 +17,10 @@ export class AppComponent {
   // The app should show a splash page on startup.
   showSplash = true;
 
-  constructor(private platform: Platform) {
+  constructor(
+    private platform: Platform,
+    public connectivity: ConnectivityService
+  ) {
     // Startup logic begins here.
     this.initializeApp();
   }
@@ -30,6 +37,12 @@ export class AppComponent {
   // Placeholder method — the spec only requires that it exists
   // and is called during startup.
   checkConnectivity() {
-    console.log('Checking internet connectivity...');
+    // Log the current state
+    console.log('Initial connectivity:', this.connectivity.isOnline());
+
+    // Subscribe to changes (this is the real integration)
+    this.connectivity.onlineChanges$.subscribe(isOnline => {
+      console.log('Connectivity changed:', isOnline);
+    });
   }
 }
