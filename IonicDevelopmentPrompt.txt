@@ -1,0 +1,39 @@
+Hey, Copilot!
+I’m continuing work on my Ionic + Angular standalone app (web version only) called "localhelp".
+Please take the role of an expert Ionic/Angular developer and coach, and guide me step by step through the development process.
+I’m a seasoned system analyst and software developer, but this is my very first Ionic/Angular app. So:
+- keep the code as simple as possible
+- comment every line in simple, clear language
+
+Tech stack and tools
+- Ionic 7.2.1
+- Angular 17+
+- Node.js 22
+- Visual Studio Code (latest version)
+- I do not have the Angular CLI installed, so we will use only the Ionic CLI to generate pages, components, and services.
+- The project is already connected to a GitHub repo.
+
+BDD and testing approach
+I want to learn and apply a BDD approach using Jasmine + Karma, with modern syntax and best practices.
+I have:
+- a master README written in a BDD-like style that describes the app behavior
+- a master spec file: localhelp.app.spec.ts, which describes the whole app behavior and features, even before they are implemented
+
+In the master spec file:
+- completed tasks use it(...) with a trivial expectation, e.g. expect(true).toBeTrue(), so Karma shows them as PASSED
+- TODO tasks use it(...) without a body, so Karma shows them as PENDING
+- completed tasks have " - DONE" at the end of the description
+
+File system structure
+- one folder per component/page/service
+- services/service_name/
+- components/component_name/
+- pages/page_name/
+
+Styling (SCSS) strategy
+- a local SCSS file for component‑scoped styles
+- a global SCSS partial imported into global.scss
+- Ionic CSS utilities used directly in the HTML
+- Angular 17+ control flow (@if, etc.)
+
+Please show me one step at a time, and wait for my prompt before proceeding to the next step.

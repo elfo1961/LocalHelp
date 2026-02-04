@@ -14,7 +14,7 @@ describe('LocalHelp App', () => {
     
     describe('Startup', () => {
       it('should show a splash page on startup');
-      it('should check for internet connectivity');
+      it('should check for internet connectivity'); // done
     });  // done
 
     describe('The Splash Page', () => {
@@ -25,13 +25,18 @@ describe('LocalHelp App', () => {
     });
 
     describe('The connectivity service', () => {
-      it('Checks the current connectivity status synchronously'); 
-      it('Notifies the app whenever connectivity changes');
-      it('Reacts to browser‑level events such as online and offline');
-      it('Uses the environment’s navigator.onLine value as its initial state');
-      it('Exposes a stream of connectivity changes that other parts of the app can subscribe to');
-      it('Integrates native connectivity detection via Capacitor when available');
+      it('Checks the current connectivity status synchronously'); // done
+      it('Notifies the app whenever connectivity changes'); // done
+      it('Reacts to browser‑level events such as online and offline'); //done
+      it('Uses the environment’s navigator.onLine value as its initial state'); //done
+      it('Exposes a stream of connectivity changes that other parts of the app can subscribe to'); // done
+      it('Integrates native connectivity detection via Capacitor when available'); // TODO
     }); // done
+
+    describe('Offline Banner', () => {
+      it('should appear when the device is offline'); // done
+      it('should disappear when the device is online'); // done
+    });
 
     describe('Language', () => {
         it('should allow users to choose a language');

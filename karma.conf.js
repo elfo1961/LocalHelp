@@ -10,7 +10,11 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
+      require('karma-spec-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
+    ],
+    files: [
+      { pattern: 'src/karma-overrides.css', included: true, served: true, watched: false }
     ],
     client: {
       jasmine: {
@@ -32,7 +36,13 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml'],
+    specReporter: {
+      suppressPassed: false,      // show passed tests
+      suppressFailed: false,      // show failed tests
+      suppressSkipped: false,     // show skipped tests (important!)
+      showSpecTiming: true,       // show test timing
+    },
+    reporters: ['spec', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

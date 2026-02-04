@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+}
+
+html {
+  overflow-y: scroll !important;
+}
+
+body {
+  overflow-y: auto !important;
+}
+
+#HTMLReporter {
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
+#HTMLReporter .jasmine_html-reporter {
+  max-height: none !important;
+  overflow-y: visible !important;
+}
