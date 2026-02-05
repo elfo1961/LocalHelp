@@ -19,7 +19,7 @@
  * This keeps the master spec readable and visually meaningful.
  */
 
-fdescribe('LocalHelp App', () => {
+describe('LocalHelp App', () => {
 
   // Startup feature
   describe('Startup', () => {
@@ -122,5 +122,16 @@ fdescribe('LocalHelp App', () => {
     it('should open the left-side navbar when the burger-menu icon is tapped');
     it('should close the navbar when the user taps outside the menu');
     it('should close the navbar when the user selects a menu item');
+  });
+  describe('User Registration – Terms Acceptance', () => {
+    it('should display the Terms of Use and Disclaimer during registration');
+        // Expect the registration flow to include both documents
+    it('should require the user to accept both documents before proceeding');
+        // Expect the "Continue" or "Create Account" button to remain disabled
+        // until both checkboxes are selected
+    it('should prevent account creation if the user does not accept the Terms of Use');
+        // Expect an error or blocked action
+    it('should prevent account creation if the user does not accept the Disclaimer');
+        // Expect an error or blocked action
   });
 });
