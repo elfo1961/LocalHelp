@@ -12,13 +12,13 @@ It serves as a guide for maintaining consistency and ensuring that both user‑f
 - Usage examples folder (`doc/user/usage_examples/`)
 - Initial usage examples:
   - Pool Cleaning (Client & Provider POV)
-  - Editing Profile and Preferences
-  - Installing and Opening the App
-  - Navigating the Splash Page
 - User documentation index (`doc/user/_index.md`)
 
 ### 1.2 To Do
 - Add additional usage examples:
+  - Editing Profile and Preferences
+  - Installing and Opening the App
+  - Navigating the Splash Page
   - Posting a help request
   - Offering a service
   - Translating a post
