@@ -36,4 +36,30 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
+/* Custom Global Styles */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.text-muted {
+  color: var(--ion-color-medium);
+}
+
+.btn {
+  --border-radius: 8px;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  font-weight: 500;
+}
+
+/* Import global styles for components */
+
 @import './app/components/offline-banner/offline-banner.global.scss';

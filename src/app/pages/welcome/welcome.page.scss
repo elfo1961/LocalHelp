@@ -1,0 +1,14 @@
+.page {
+  justify-content: center;
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .title {}
+  .btn-language {}
+  .btn-login {}
+  .btn-register {}
+  .btn-guest {}
+  .btn-credits {}
+}

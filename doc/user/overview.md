@@ -21,16 +21,22 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 2. Splash Page
+# Splash Screen
 
-- Users can choose the language of the app  
-- Users can access the login or registration page  
-- Users can view the credits  
-- Users can see available subscription plans  
+- The app displays a non‑interactive splash screen on startup  
+- The app automatically transitions to the Welcome Page after initialization
 
 ---
 
-# 3. Connectivity Service
+# 3. Welcome Page
+
+- Users can choose the language of the app  
+- Users can access the login or registration page  
+- Users can view the credits 
+
+---
+
+# 4. Connectivity Service
 
 - The app knows whether the device is online or offline  
 - The app reacts when the connection changes  
@@ -38,7 +44,7 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 4. Offline Banner
+# 5. Offline Banner
 
 - The banner is hidden when the device is online  
 - The banner appears when the device is offline  
@@ -47,7 +53,7 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 5. Language
+# 6. Language
 
 - Users can choose their preferred language  
 - Users can switch languages at any time  
@@ -55,22 +61,34 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 6. Authentication
+# 7. Authentication
 
 - Users can log in  
-- Users can register  
-- The app loads the user’s preferences after login  
+- Users can register
+- Users can see available subscription plans before registering
+- The app loads the user’s preferences after login
 
 ---
 
-# 7. User Profile
+# 8. Accepting Terms During Registration
+
+Before creating an account, users must read and accept:
+
+- **Terms of Use**
+- **Disclaimer** LocalHelp does not intermediate or take responsibility for agreements between clients and service providers.
+
+These must be accepted to complete registration.
+
+---
+
+# 9. User Profile
 
 - Logged‑in users can edit their profile  
 - Logged‑in users can save their preferences  
 
 ---
 
-# 8. Help Requests
+# 10. Help Requests
 
 - Users can view help requests  
 - Logged‑in users can create help requests  
@@ -80,7 +98,7 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 9. Service Offers
+# 11. Service Offers
 
 - Users can view service offers  
 - Logged‑in users can create service offers  
@@ -90,7 +108,7 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 10. Categories
+# 12. Categories
 
 - Logged‑in users can search existing subcategories  
 - The app suggests matching subcategories while typing  
@@ -99,7 +117,7 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# 11. Navigation Menu
+# 13. Navigation Menu
 
 - A menu icon appears in the top‑left corner  
 - Tapping the icon opens the side menu  
@@ -107,12 +125,3 @@ Technical details are collected in a separate section at the end.
 - Choosing a menu item closes the menu  
 
 ---
-
-# 12. Accepting Terms During Registration
-
-Before creating an account, users must read and accept:
-
-- **Terms of Use**
-- **Disclaimer** LocalHelp does not intermediate or take responsibility for agreements between clients and service providers.
-
-These must be accepted to complete registration.

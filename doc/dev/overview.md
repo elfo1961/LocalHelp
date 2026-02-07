@@ -14,14 +14,19 @@ for real specs.
 
 ---
 
-## 2. Splash Page — Technical Notes
+## 2. Splash Screen — Technical Notes
+
+- Displays a non‑interactive splash screen during initialization  
+- Automatically transitions to the Welcome Page once startup tasks complete  
+
+## 3. Welcome Page — Technical Notes
 
 - Language selection triggers internal localization logic  
-- Navigation routes link to login/registration, credits, and subscription pages  
+- Navigation routes link to login/registration, and credits
 
 ---
 
-## 3. Connectivity Service — Technical Notes
+## 4. Connectivity Service — Technical Notes
 
 - Connectivity status is read synchronously  
 - The app listens to browser‑level online/offline events  
@@ -31,7 +36,7 @@ for real specs.
 
 ---
 
-## 4. Offline Banner — Technical Notes
+## 5. Offline Banner — Technical Notes
 
 - Banner visibility depends on connectivity state  
 - A warning message is displayed dynamically  
@@ -39,7 +44,7 @@ for real specs.
 
 ---
 
-## 5. Language — Technical Notes
+## 6. Language — Technical Notes
 
 - Language selection updates the app’s translation service  
 - Switching languages triggers UI refresh  
@@ -47,21 +52,32 @@ for real specs.
 
 ---
 
-## 6. Authentication — Technical Notes
+## 7. Authentication — Technical Notes
 
 - Login and registration use the authentication service  
-- User preferences are loaded after successful authentication  
+- User preferences are loaded after successful authentication
 
 ---
 
-## 7. User Profile — Technical Notes
+## 8. Terms Acceptance During Registration
+
+During the registration process, new users must explicitly read and accept:
+
+- **Terms of Use**
+- **Disclaimer**: LocalHelp does not intermediate, guarantee, or take responsibility for agreements between clients and service providers.
+
+Registration cannot be completed unless both items are accepted.
+
+---
+
+## 9. User Profile — Technical Notes
 
 - Profile editing updates user data in storage/backend  
 - Preferences are persisted through the user service  
 
 ---
 
-## 8. Help Requests — Technical Notes
+## 10. Help Requests — Technical Notes
 
 - Viewing requests loads data from the backend  
 - Creating/editing/deleting requires authentication  
@@ -69,14 +85,14 @@ for real specs.
 
 ---
 
-## 9. Service Offers — Technical Notes
+## 11. Service Offers — Technical Notes
 
 - Same technical structure as Help Requests  
 - CRUD operations require authentication  
 
 ---
 
-## 10. Categories — Technical Notes
+## 12. Categories — Technical Notes
 
 - Search uses a lookup against existing subcategories  
 - Suggestions are generated dynamically  
@@ -85,7 +101,7 @@ for real specs.
 
 ---
 
-## 11. Navigation Menu — Technical Notes
+## 13. Navigation Menu — Technical Notes
 
 - The menu icon triggers the side navigation controller  
 - Overlay click detection closes the menu  
@@ -93,7 +109,7 @@ for real specs.
 
 ---
 
-## 12. Terms Acceptance During Registration
+## 13. Terms Acceptance During Registration
 
 During the registration process, new users must explicitly read and accept:
 
