@@ -21,27 +21,28 @@ Technical details are collected in a separate section at the end.
 
 ---
 
-# Splash Screen
+# 2. The Splash Screen
 
-- The app displays a non‑interactive splash screen on startup  
-- The app automatically transitions to the Welcome Page after initialization
+- Displays a non‑interactive splash screen on startup  
+- Automatically loads the Welcome Page after initialization
 
 ---
 
 # 3. Welcome Page
 
 - Users can choose the language of the app  
-- Users can access the login or registration page  
+- Users can navigate to the login or registration page
+- Users can recover/reset their credentials
+- Users can access as "guest", with limitations
 - Users can view the credits 
 
 ---
 
 # 4. Connectivity Service
 
-- The app knows whether the device is online or offline  
-- The app reacts when the connection changes  
-- Other parts of the app can be informed when the connection changes  
-
+- It reacts when the connection changes
+- It notifies other parts of the app when the connection changes
+- It visually informs the user when the app is offline. (see offline-banner below)
 ---
 
 # 5. Offline Banner
@@ -57,7 +58,7 @@ Technical details are collected in a separate section at the end.
 
 - Users can choose their preferred language  
 - Users can switch languages at any time  
-- Users can translate posts into their preferred language  
+- Users can translate user‑generated content into their preferred language  
 
 ---
 
@@ -65,26 +66,28 @@ Technical details are collected in a separate section at the end.
 
 - Users can log in  
 - Users can register
-- Users can see available subscription plans before registering
-- The app loads the user’s preferences after login
-
+- Users can recover their password
+- Users can log in with their social account credentials
+- Users can view subscription plans before registering
+- After login, the app loads the user’s saved preferences
 ---
 
 # 8. Accepting Terms During Registration
 
-Before creating an account, users must read and accept:
-
+To create an account, users must read and accept:
 - **Terms of Use**
-- **Disclaimer** LocalHelp does not intermediate or take responsibility for agreements between clients and service providers.
+- **Disclaimer:** LocalHelp does not mediate or assume responsibility for agreements between clients and service providers.
 
-These must be accepted to complete registration.
+***These must be accepted to complete registration***.
 
 ---
 
 # 9. User Profile
 
 - Logged‑in users can edit their profile  
-- Logged‑in users can save their preferences  
+- Logged‑in users can save their preferences
+- Logged‑in users can view their activity history
+- Logged‑in users can delete their account
 
 ---
 
@@ -113,8 +116,7 @@ These must be accepted to complete registration.
 - Logged‑in users can search existing subcategories  
 - The app suggests matching subcategories while typing  
 - Users can create a new subcategory if none match  
-- The app prevents duplicate subcategories  
-
+- The app prevents users from creating duplicate subcategories
 ---
 
 # 13. Navigation Menu
@@ -122,6 +124,6 @@ These must be accepted to complete registration.
 - A menu icon appears in the top‑left corner  
 - Tapping the icon opens the side menu  
 - Tapping outside the menu closes it  
-- Choosing a menu item closes the menu  
+- Selecting a menu item closes the menu  
 
 ---

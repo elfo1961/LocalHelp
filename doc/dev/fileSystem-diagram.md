@@ -1,12 +1,14 @@
 # LocalHelp Project File System Diagram
 
-This diagram provides a high‑level overview of the project’s folder structure.
+This diagram outlines the project’s folder structure at a high level, highlighting how features and shared resources are organized.
+
 The project distinguishes between **reusable features**, which can be used across multiple parts of the application, and **page‑scoped features**, which belong exclusively to a single page or feature. This organizational pattern helps keep the codebase clear, modular, and easy to maintain as the project grows.
 
 ## Reusable and Page‑Scoped Features
 
 ### Reusable Features
-Reusable elements—such as UI components, pipes, directives, or utilities—are placed inside the `shared/` folder. These items are designed to be generic, self‑contained, and independent of any specific page’s logic. Anything stored here should be safe to import from anywhere in the app.
+Reusable elements—such as UI components, pipes, directives, or utilities—are live under the `shared/` folder. Anything placed here should be generic, self‑contained, and safe to import from any part of the application.
+
 When this document was written, the `shared/` folder included only the components/ subfolder. Other subfolders will be added in the future if and when they become necessary.
 
 ### Page‑Scoped Features
@@ -16,7 +18,7 @@ Elements that are intended to support a single page or feature are placed inside
 Application‑wide services—those used throughout the entire app—reside in the top‑level `services/` folder rather than under `shared/`. These services represent core logic rather than UI‑level reuse.  
 Only create a `services/` subfolder inside a page when a service is truly feature‑specific and not intended for global use.
 
-This structure keeps reusable logic and UI elements clearly separated from page‑specific implementations, while maintaining a consistent and scalable architecture.
+This structure cleanly separates reusable logic from page‑specific implementations, ensuring the architecture remains consistent and scalable as the application grows.
 
 ---
 

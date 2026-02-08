@@ -29,6 +29,10 @@ export class WelcomePage {
     this.router.navigateByUrl('/register');
   }
 
+  goToRecover() {
+    this.router.navigateByUrl('/recover');
+  }
+
   continueAsGuest() {
     this.router.navigateByUrl('/home');
   }

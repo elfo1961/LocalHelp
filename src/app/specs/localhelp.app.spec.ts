@@ -58,9 +58,12 @@ describe('LocalHelp App', () => {
     it('should allow users to access the credits page — DONE', () => {
       expect(true).toBeTrue();
     });
+    it('should allow users to access the password recovery/reset page — DONE', () => {
+      expect(true).toBeTrue();
+    });
   });
 
-  // Connectivity Service — DONE - see connectivity.service.spec.ts
+  // Connectivity Service - see connectivity.service.spec.ts
   describe('The connectivity service — DONE', () => {
     it('Checks the current connectivity status synchronously — DONE', () => {
       expect(true).toBeTrue();
@@ -86,7 +89,7 @@ describe('LocalHelp App', () => {
   });
 
   // Offline Banner feature
-  describe('Offline Banner', () => {
+  describe('Offline Banner - DONE', () => {
     it('should be hidden when the device is online — DONE', () => {
       expect(true).toBeTrue();
     });
@@ -105,8 +108,7 @@ describe('LocalHelp App', () => {
   describe('Language', () => {
     it('should allow users to choose a language');
     it('should allow users to switch languages at any time');
-    it('should allow users to translate posts into their language');
-  });
+    it('should allow users to translate user‑generated content into the selected language');  });
 
   // Authentication feature
   describe('Authentication', () => {
@@ -114,6 +116,8 @@ describe('LocalHelp App', () => {
     it('should allow users to register');
     it('should allow users to see the subscription plans');
     it('should load the user preferences');
+    it('should allow users to recover their password');
+    it('should allow users to log in with their social account credentials');
   });
 
   // User Profile feature

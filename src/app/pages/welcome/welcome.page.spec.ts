@@ -30,9 +30,10 @@ describe('WelcomePage', () => {
   // UI: The page should display the page title
   // ------------------------------------------------------------
   it('should display the correct title text', () => {
-  const titleEl = fixture.debugElement.query(By.css('.title')).nativeElement;
-  expect(titleEl.textContent.trim()).toBe('Welcome to LocalHelp');
-});
+    fixture.detectChanges();
+    const titleEl = fixture.debugElement.query(By.css('.title')).nativeElement;
+    expect(titleEl.textContent.trim()).toBe('Welcome Page');
+  });
   // ------------------------------------------------------------
   // UI: The page should welcome the user
   // ------------------------------------------------------------
@@ -41,6 +42,10 @@ describe('WelcomePage', () => {
 
     const el = fixture.debugElement.query(By.css('.page'));
     expect(el).not.toBeNull();
+    var msg = fixture.debugElement.query(By.css('.welcome-message')).nativeElement;
+    expect(msg.textContent.trim()).toBe('Welcome to LocalHelp');
+    msg = fixture.debugElement.query(By.css('.welcome-subtitle')).nativeElement;
+    expect(msg.textContent.trim()).toBe('The app that helps connect people who need help with people who can offer it.');
   });
 
   // ------------------------------------------------------------
@@ -101,4 +106,15 @@ describe('WelcomePage', () => {
     expect(routerSpy.navigateByUrl).toHaveBeenCalledWith('/credits');
   });
 
+  // ------------------------------------------------------------
+// Behavior: Navigate to Password Recovery Page
+// ------------------------------------------------------------
+  it('should allow users to access the password recovery page', () => {
+    fixture.detectChanges();
+
+    const btn = fixture.debugElement.query(By.css('.btn-recover'));
+    btn.triggerEventHandler('click');
+
+    expect(routerSpy.navigateByUrl).toHaveBeenCalledWith('/recover');
+  });
 });

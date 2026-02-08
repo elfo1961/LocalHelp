@@ -22,17 +22,22 @@ for real specs.
 ## 3. Welcome Page — Technical Notes
 
 - Language selection triggers internal localization logic  
-- Navigation routes link to login/registration, and credits
-
+- Navigation routes link to:
+-- login page
+-- registration page
+-- password recovery page
+-- credits page
+-- home page (guest access with limited functionality)
 ---
 
 ## 4. Connectivity Service — Technical Notes
 
-- Connectivity status is read synchronously  
+- The initial connectivity state is read synchronously at startup
 - The app listens to browser‑level online/offline events  
 - The initial state is based on the environment’s online indicator  
 - A stream/observable notifies subscribers of connectivity changes  
-- Native connectivity detection (Capacitor) will be integrated later  
+- Native connectivity detection (Capacitor) will be integrated later
+- It exposes the connectivity state so UI components (such as the offline banner) can react to changes  
 
 ---
 
@@ -48,14 +53,15 @@ for real specs.
 
 - Language selection updates the app’s translation service  
 - Switching languages triggers UI refresh  
-- Post translation uses the selected language  
-
+- User‑generated contents can be translated to the currently selected language by an AI translation service
 ---
 
 ## 7. Authentication — Technical Notes
 
 - Login and registration use the authentication service  
 - User preferences are loaded after successful authentication
+- Password recovery triggers the backend’s reset workflow
+- Social login integrates with external identity providers (implementation pending)
 
 ---
 
@@ -73,7 +79,9 @@ Registration cannot be completed unless both items are accepted.
 ## 9. User Profile — Technical Notes
 
 - Profile editing updates user data in storage/backend  
-- Preferences are persisted through the user service  
+- Preferences are persisted through the user service
+- Activity history is retrieved from the backend and displayed to the user
+- Account deletion permanently removes the user profile and associated data
 
 ---
 
@@ -108,12 +116,3 @@ Registration cannot be completed unless both items are accepted.
 - Selecting a menu item triggers navigation and closes the menu  
 
 ---
-
-## 13. Terms Acceptance During Registration
-
-During the registration process, new users must explicitly read and accept:
-
-- **Terms of Use**
-- **Disclaimer**: LocalHelp does not intermediate, guarantee, or take responsibility for agreements between clients and service providers.
-
-Registration cannot be completed unless both items are accepted.

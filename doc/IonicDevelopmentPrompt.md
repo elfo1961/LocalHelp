@@ -5,7 +5,7 @@ Please take the role of an expert Ionic/Angular developer and coach, and guide m
 
 Plus, check my English and suggest me how to rephrase it like an Ionic dev team leader will do.
 
-Please show me one step at a time, and wait for my prompt before proceeding to the next step.
+Please show me one step at a time, and wait for my prompt before proceeding to the next step. Plus, show only the changes in separate windows, easy to copy-paste; do not rewrite/print the whole source document.
 
 I’m a seasoned system analyst and software developer, but this is my very first Ionic/Angular app. So:
 - keep the code as simple as possible
@@ -54,5 +54,5 @@ I’ll upload these files, one at a time:
 
 Please wait until all files are uploaded, then analize them for consistency an coherence and give me some feedback.
 
-Then, use localhelp.app.spec.ts to suggest the next step. Right now, all the implemented tests pass, and they are marked “Done” as described above. The app works as expected.Tell me if you need more information.
-
+Then, use localhelp.app.spec.ts to suggest the next step. Right now, all the implemented tests pass, and they are marked “Done” as described above. The app works as expected.
+Plese, first of all tell me if the prompt is clear and if you need more information.

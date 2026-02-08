@@ -1,7 +1,10 @@
 <ion-content class="page ion-padding">
 
-  <h1 class="title">Welcome to LocalHelp</h1>
-
+  <h1 class="title">Welcome Page</h1>
+  <h2 class="welcome-message">Welcome to LocalHelp</h2>
+  <p class="welcome-subtitle">
+    The app that helps connect people who need help with people who can offer it.
+  </p>
   <div class="actions">
 
     <ion-button expand="block" class="btn btn-language" (click)="chooseLanguage()">
@@ -10,6 +13,10 @@
 
     <ion-button expand="block" class="btn btn-login" (click)="goToLogin()">
       Login
+    </ion-button>
+
+    <ion-button expand="block" class="btn btn-recover" (click)="goToRecover()">
+      Recover Password
     </ion-button>
 
     <ion-button expand="block" class="btn btn-register" (click)="goToRegister()">
