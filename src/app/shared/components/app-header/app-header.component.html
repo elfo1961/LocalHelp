@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- LEFT: Burger menu button -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <!-- ion-menu-button automatically opens the side menu -->
+    </ion-buttons>
+    <!-- CENTER: Page title -->
+    <ion-title class="ion-text-center">
+      {{ title }}
+      <!-- The title comes from the @Input() property -->
+    </ion-title>
+    <!-- RIGHT: Exit button -->
+    <ion-buttons slot="end">
+      <ion-button (click)="onExit()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+      <!-- The exit button will emit an event or call a service later -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

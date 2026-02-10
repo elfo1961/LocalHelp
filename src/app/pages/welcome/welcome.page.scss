@@ -1,8 +1,12 @@
-.page {
-  justify-content: center;
+.welcome-page {
+  background-color: yellow;
+  h2 {
+    color: red;
+  }
   .actions {
     display: flex;
     flex-direction: column;
+    width: auto;
     gap: 1rem;
   }
   .title {}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonMenu, IonContent, IonIcon, IonLabel, IonItem } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { ConnectivityService } from './services/connectivity/connectivity.service';
 import { AsyncPipe } from '@angular/common';
@@ -12,10 +12,17 @@ import { OfflineBannerComponent } from './shared/components/offline-banner/offli
   imports: [
     IonApp,
     IonRouterOutlet,
+    IonMenu,
+    IonContent,
+    IonIcon,
+    IonLabel,
+    IonItem,
     AsyncPipe,
     OfflineBannerComponent
   ],
 })
+
+
 export class AppComponent {
 
   // Required by your Startup BDD spec:

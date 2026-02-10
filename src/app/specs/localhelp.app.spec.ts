@@ -1,6 +1,13 @@
 /**
  * MASTER BDD SPEC FILE FOR LOCALHELP
  *
+ * The master spec provides a complete behavioral map of the LocalHelp application.
+ * All implemented features are clearly marked as DONE with trivial expectations,
+ * while future work is represented as pending tests.
+ * The structure mirrors the user and developer overviews,
+ * ensuring full traceability from business requirements to technical implementation.
+ * This is a solid foundation for iterative BDD development.
+ *
  * IMPORTANT NOTE ABOUT THE WORK‑AROUND:
  * -------------------------------------
  * Jasmine treats any `it('...')` with NO function body as a **pending test**.
