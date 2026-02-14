@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonMenu, IonContent, IonIcon, IonLabel, IonItem } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonMenu } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { ConnectivityService } from './services/connectivity/connectivity.service';
-import { AsyncPipe } from '@angular/common';
-import { OfflineBannerComponent } from './shared/components/offline-banner/offline-banner.component';
+import {AppNavMenuComponent} from "./shared/components/app-nav-menu/app-nav-menu.component";
 
   @Component({
   selector: 'app-root',
@@ -11,15 +10,10 @@ import { OfflineBannerComponent } from './shared/components/offline-banner/offli
   templateUrl: 'app.component.html',
   imports: [
     IonApp,
-    IonRouterOutlet,
     IonMenu,
-    IonContent,
-    IonIcon,
-    IonLabel,
-    IonItem,
-    AsyncPipe,
-    OfflineBannerComponent
-  ],
+    IonRouterOutlet,
+    AppNavMenuComponent
+   ],
 })
 
 

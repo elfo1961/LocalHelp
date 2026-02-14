@@ -53,13 +53,6 @@
   color: var(--ion-color-medium);
 }
 
-.btn {
-  --border-radius: 8px;
-  --padding-start: 1rem;
-  --padding-end: 1rem;
-  font-weight: 500;
-}
+/* custom themes */
 
-/* Import global styles for components */
-
-@import './app/shared/components/offline-banner/offline-banner.global.scss';
+@import './theme/core.scss';

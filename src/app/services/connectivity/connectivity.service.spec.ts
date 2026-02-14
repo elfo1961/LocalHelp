@@ -7,7 +7,6 @@ describe('ConnectivityService – Connectivity Behavior', () => {
   let service: ConnectivityService;
 
   function createService() {
-    TestBed.resetTestingModule();
     TestBed.configureTestingModule({
       providers: [ConnectivityService],
     });
@@ -17,11 +16,6 @@ describe('ConnectivityService – Connectivity Behavior', () => {
   it must be called after any navigator.onLine spy is set,
   because the service reads that value at construction time.
   */
-
-  it('should be created', () => {
-    service = createService();
-    expect(service).toBeTruthy();
-  }); // done
 
   it('should return true when the browser reports online', () => {
     spyOnProperty(navigator, 'onLine', 'get').and.returnValue(true);

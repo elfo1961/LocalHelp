@@ -1,35 +1,39 @@
-<app-header title="Welcome"></app-header>
-<ion-content class="welcome-page ion-padding hydrated">
+<app-layout title="Welcome"></app-layout>
+
+<ion-content class="welcome-page ion-padding">
   <h2 class="welcome-message">Welcome to LocalHelp</h2>
   <p class="welcome-subtitle">
     The app that helps connect people who need help with people who can offer it.
   </p>
+
   <div class="actions">
 
+    <!--
+    The "language selector" button stays as a click handler because it performs logic;
+    It will be moved to the <app-layout> component in the future, but for now it needs to be here.
+    the others are just navigation and can be handled with routerLink.
+    -->
     <ion-button expand="block" class="btn btn-language" (click)="chooseLanguage()">
       Choose Language
     </ion-button>
+    <div class="auth-container">
+      <ion-button expand="block" class="btn btn-login" routerLink="/login">
+        Login
+      </ion-button>
 
-    <ion-button expand="block" class="btn btn-login" (click)="goToLogin()">
-      Login
-    </ion-button>
+      <ion-button expand="block" class="btn btn-recover" routerLink="/recover">
+        Recover Password
+      </ion-button>
 
-    <ion-button expand="block" class="btn btn-recover" (click)="goToRecover()">
-      Recover Password
-    </ion-button>
-
-    <ion-button expand="block" class="btn btn-register" (click)="goToRegister()">
-      Register
-    </ion-button>
-
-    <ion-button expand="block" fill="outline" class="btn btn-guest" (click)="continueAsGuest()">
-      Continue as Guest
-    </ion-button>
-
-    <ion-button expand="block" fill="clear" class="btn btn-credits" (click)="goToCredits()">
+      <ion-button expand="block" class="btn btn-register" routerLink="/register">
+        Register
+      </ion-button>
+      <ion-button expand="block" fill="outline" class="btn btn-guest" routerLink="/home">
+        Continue as Guest
+      </ion-button>
+    </div>
+    <ion-button expand="block" fill="clear" class="btn btn-credits" routerLink="/credits">
       Credits
     </ion-button>
-
   </div>
 </ion-content>
-

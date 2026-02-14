@@ -1,0 +1,21 @@
+/**
+* Core styles for the application.
+* ----------------------------------------------------------------------------
+* This file contains core styles that are used throughout the application.
+* It is imported into the global stylesheet (src/global.scss) and can be used to define
+* custom themes, variables, and styles that are shared across multiple components.
+* Each component can also have its own styles defined in its respective .scss file,
+* but this file is intended for styles that are common across the entire app.
+* Each theme must be defined in its own subfolder and imported here to keep things organized.
+* More detailded information on theming and styling in Ionic can be found in the [localhelp/doc/dev/theming.md file](../../../doc/dev/theming.md file).:
+* For more information on theming and styling in Ionic, visit the documentation:
+* https://ionicframework.com/docs/theming/basics
+*
+**/
+
+.btn {
+  --border-radius: 8px;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  font-weight: 500;
+}

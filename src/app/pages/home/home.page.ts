@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
+
+import { IonContent } from '@ionic/angular/standalone';
+
+import { AppLayoutComponent } from '../../shared/layouts/app-layout/app-layout.component';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  standalone: true,
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
+  imports: [
+    CommonModule,
+    IonContent,
+    // Your components
+    AppLayoutComponent,
+],
 })
-export class HomePage {
-  constructor() {}
-}
+
+export class HomePage {}

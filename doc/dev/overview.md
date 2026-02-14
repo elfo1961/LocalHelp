@@ -64,6 +64,13 @@ for real specs.
 - Social login integrates with external identity providers (implementation pending)
 
 ---
+## 7.1 Subscription Plans — Technical Notes
+
+- Subscription plans are retrieved from the backend  
+- Logged‑in users can view or upgrade their current plan  
+- Plan changes trigger an update of the user profile and permissions  
+
+---
 
 ## 8. Terms Acceptance During Registration
 
@@ -82,6 +89,7 @@ Registration cannot be completed unless both items are accepted.
 - Preferences are persisted through the user service
 - Activity history is retrieved from the backend and displayed to the user
 - Account deletion permanently removes the user profile and associated data
+- Logout is available globally through the shared header and the navigation menu
 
 ---
 

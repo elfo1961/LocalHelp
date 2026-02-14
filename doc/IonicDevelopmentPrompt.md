@@ -68,12 +68,16 @@ Next I'll tell you how I'd like to proceed (my roadmap). We'll proceed one step 
 
 ## Summarizing:
 - Strict BDD approach/flow
-- STANDALONE app (no NgModule at all)
+-- spec first
+-- one test at a time (failing)
+-- minimal implementation to make the test pass
+- STANDALONE Ionic/Angular app (no NgModule, VUE, React or other strange things)
 - one step at a time
-- Print ou the changes only, do not rewrite the whole code
-- Suggest the simplest implementation, not the most advanced one
-- Write terse, concise answers
-- Make clear if you're suggesting a try or a real solution.
+- Print out the changes only (diff like), do not rewrite the whole code
+- Suggest the simplest and **SAFEST** implementation, not the most advanced one.
+-- SAFE means you have to double-check and ensure that what you suggest won't break-or interfere with-the Ionic/Angular engine
+- Write terse, concise answers. I don't need to know how the engine works to drive a car.
+- Make clear if you're suggesting a hypotesis or a real solution. Say 100% only if you are really sure it will work
 
 Everything clear? Ready to go?
 

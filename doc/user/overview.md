@@ -71,6 +71,11 @@ Technical details are collected in a separate section at the end.
 - Users can view subscription plans before registering
 - After login, the app loads the user’s saved preferences
 ---
+# 7.1 Subscription Plans
+- Users can view available subscription plans  
+- Logged‑in users can view or upgrade their current plan  
+
+---
 
 # 8. Accepting Terms During Registration
 
@@ -88,6 +93,7 @@ To create an account, users must read and accept:
 - Logged‑in users can save their preferences
 - Logged‑in users can view their activity history
 - Logged‑in users can delete their account
+- Logged‑in users can log out from any page
 
 ---
 

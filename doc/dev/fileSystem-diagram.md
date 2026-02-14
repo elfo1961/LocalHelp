@@ -1,6 +1,7 @@
 # LocalHelp Project File System Diagram
 
 This diagram outlines the project’s folder structure at a high level, highlighting how features and shared resources are organized.
+The feature enclosed in <> must be replaced by the feature name. <...> indicates that there can be more than one subfolder
 
 The project distinguishes between **reusable features**, which can be used across multiple parts of the application, and **page‑scoped features**, which belong exclusively to a single page or feature. This organizational pattern helps keep the codebase clear, modular, and easy to maintain as the project grows.
 
@@ -29,19 +30,38 @@ Each page in the application has its own folder under `pages/`, named after the 
 Following this pattern keeps each page self‑contained, makes its dependencies easy to locate, and ensures that feature‑specific logic stays close to the UI it supports. At the same time, reusable elements continue to live under `shared/`, maintaining a clear separation between global and feature‑scoped code.
 
 ---
+## Theming
+The [overall app style](../../src/theme/core.scss) and variables definition live directly in the app/src/theme folder.
+Any additional theme will live in its own subfolder. See the [Theming guide](Theming.md) for further information.
 
 ```
 localhelp/
 │
 ├── src/
 │   ├── app/
+│   │   ├──+ themes/
+│   │   |  |── variables.scss
+│   │   |  |── core.scss
+│   │   |  |── <theme>/
+│   │   |  |── <...>/
+|   |   |
 │   │   ├──+ shared/
-│   │   |  ├── components/
+│   │   |  ├──+ components/
+│   │   |  |  ├── <component>/
+│   │   |  |  ├── <...>/
+|   |   |  |
+│   │   |  ├──+ layouts/
+│   │   |  |  ├── <layout>/
+|   |   |  
 │   │   ├──+ pages/
-│   │   |  ├── <page>/components/
+│   │   |  ├── <page>/
+│   │   |  |  +── <page>/components/
+│   │   |  ├── <...>/
+|   |   |
 │   │   ├── services/
-│   │   ├── localhelp.app.spec.ts   ← Master BDD Spec (Jasmine executable)
-│   │   └── app.module.ts
+|   |   |
+│   │   ├──+ specs/
+|   │   │  ├── localhelp.app.spec.ts   ← Master BDD Spec (Jasmine executable)
 │   │
 │   ├── assets/
 │   ├── environments/
@@ -61,6 +81,7 @@ localhelp/
 │   │   ├── overview.md
 │   │   ├── usage_example_template.md
 │   │   ├── filesystem-diagram.md
+│   │   ├── layout-management.md
 │   │   └── _index.md
 │
 └── README.md   ← Root intro

@@ -1,20 +1,11 @@
 <ion-app>
 
-  <!-- Side menu -->
+  <!-- Global menu -->
   <ion-menu contentId="main-content">
-    <ion-content>
-      <div id="main-content">
-        <p>Menu content goes here</p>
-          <ion-item>
-            <ion-icon slot="start" name="home"></ion-icon>
-            <ion-label>Home</ion-label>
-          </ion-item>
-      </div>
-    </ion-content>
+    <app-nav-menu></app-nav-menu>
   </ion-menu>
-    <!-- Offline banner stays visible above page content -->
-    <offline-banner [isOnline]="connectivity.onlineChanges$ | async"></offline-banner>
-    <!-- The ONLY router outlet -->
-    <ion-router-outlet></ion-router-outlet>
+
+  <!-- Main navigation area -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 
 </ion-app>
