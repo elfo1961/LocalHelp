@@ -1,0 +1,12 @@
+<ion-item>
+  <ion-label>Language</ion-label>
+
+  <ion-select>
+    @for (lang of languages; track lang.value) {
+      <ion-select-option [value]="lang.value">
+        {{ lang.label }}
+      </ion-select-option>
+    }
+  </ion-select>
+
+</ion-item>

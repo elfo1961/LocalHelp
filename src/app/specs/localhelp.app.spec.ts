@@ -53,23 +53,39 @@ describe('LocalHelp App', () => {
     it('should welcome the user to the app — DONE', () => {
       expect(true).toBeTrue();
     });
-    it('should allow users to choose the language for the app interface — DONE', () => {
-      expect(true).toBeTrue();
-    });
-    it('should allow users to access the login/registration form — DONE', () => {
-      expect(true).toBeTrue();
-    });
-    it('should allow users to access the help requests and service offers without logging in, with limited functionality — DONE', () => {
-      expect(true).toBeTrue();
-    });
+
+    it('should allow users to navigate to the Enter Page');
+    it('should allow users to navigate to the Info Page');
+
     it('should allow users to access the credits page — DONE', () => {
       expect(true).toBeTrue();
     });
-    it('should allow users to access the password recovery/reset page — DONE', () => {
-      expect(true).toBeTrue();
-    });
+  });
+  // Enter Page feature
+  describe('The Enter Page', () => {
+    it('should allow users to login');
+    it('should allow users to register');
+    it('should allow users to recover their password');
+    it('should allow users to continue as guest with limited functionality');
   });
 
+  // Info Page feature
+  describe('The Info Page', () => {
+    it('should display the Terms of Use');
+    it('should display the Disclaimer');
+    it('should display the FAQ');
+    it('should display help and support information');
+    it('should display subscription plans to all users');
+    it('should allow users to view the credits');
+  });
+
+  // Preferences feature
+  describe('Preferences', () => {
+    it('should allow all users to change language');
+    it('should allow all users to change UI and accessibility preferences');
+    it('should save preferences for logged-in users');
+    it('should store preferences locally for guests (optional)');
+  });
   // Connectivity Service - see connectivity.service.spec.ts
   describe('The connectivity service — DONE', () => {
     it('Checks the current connectivity status synchronously — DONE', () => {
@@ -121,7 +137,7 @@ describe('LocalHelp App', () => {
   describe('Authentication', () => {
     it('should allow users to login');
     it('should allow users to register');
-    it('should allow users to see the subscription plans');
+    it('should allow logged-in users to select or upgrade a subscription plan');
     it('should load the user preferences');
     it('should allow users to recover their password');
     it('should allow users to log in with their social account credentials');

@@ -1,135 +1,171 @@
-# LocalHelp – Feature Overview (Client‑Friendly Version)
+# LocalHelp – User Overview
 
-LocalHelp is a cross‑platform, multilingual community help & services app built with Ionic + Angular.  
-The app allows users to request help or offer services in their local area.
-
-## Supported Languages
-- English (first release)
-- Spanish
-- German
-- Brazilian Portuguese
-
-This document describes what the LocalHelp app is expected to do from a user and business perspective.  
-Technical details are collected in a separate section at the end.
+This document describes the LocalHelp application from the user’s perspective.
+It outlines the main pages, available actions, and differences between guest and
+logged‑in experiences. It reflects the updated architecture defined in the
+App Flow document.
 
 ---
 
 # 1. Startup
 
-- The app shows a splash screen when it starts  
-- The app checks whether the device has an internet connection  
+- The app shows a splash screen when it starts.
+- The app checks whether the device has an internet connection.
 
 ---
 
-# 2. The Splash Screen
+# 2. Splash Screen
 
-- Displays a non‑interactive splash screen on startup  
-- Automatically loads the Welcome Page after initialization
+- Displays a non‑interactive splash screen.
+- Automatically transitions to the Welcome Page after initialization.
 
 ---
 
 # 3. Welcome Page
 
-- Users can choose the language of the app  
-- Users can navigate to the login or registration page
-- Users can recover/reset their credentials
-- Users can access as "guest", with limitations
-- Users can view the credits 
+Available to all users:
+
+- Navigate to the **Enter Page**
+- Navigate to the **Info Page**
+- View **Credits**
+
+Notes:
+
+- Authentication actions are no longer here.
+- The Welcome Page is intentionally minimal.
 
 ---
 
-# 4. Connectivity Service
+# 4. Enter Page (Authentication Hub)
 
-- It reacts when the connection changes
-- It notifies other parts of the app when the connection changes
-- It visually informs the user when the app is offline. (see offline-banner below)
----
+Available to all users:
 
-# 5. Offline Banner
+- Login
+- Register
+- Recover password
+- Continue as guest (limited functionality)
 
-- The banner is hidden when the device is online  
-- The banner appears when the device is offline  
-- The banner shows a clear warning message  
-- The banner visually reflects the offline state  
+Notes:
 
----
-
-# 6. Language
-
-- Users can choose their preferred language  
-- Users can switch languages at any time  
-- Users can translate user‑generated content into their preferred language  
+- Centralizes all authentication actions.
+- Simplifies the Welcome Page.
 
 ---
 
-# 7. Authentication
+# 5. Info Page
 
-- Users can log in  
-- Users can register
-- Users can recover their password
-- Users can log in with their social account credentials
-- Users can view subscription plans before registering
-- After login, the app loads the user’s saved preferences
----
-# 7.1 Subscription Plans
-- Users can view available subscription plans  
-- Logged‑in users can view or upgrade their current plan  
+Available to all users:
 
----
+- Terms of Use
+- Disclaimer
+- FAQ
+- Help / Support
+- Subscription Plans (view only)
+- Credits (optional)
 
-# 8. Accepting Terms During Registration
+Logged‑in users:
 
-To create an account, users must read and accept:
-- **Terms of Use**
-- **Disclaimer:** LocalHelp does not mediate or assume responsibility for agreements between clients and service providers.
-
-***These must be accepted to complete registration***.
+- May select or upgrade their subscription plan.
 
 ---
 
-# 9. User Profile
+# 6. Home Page
 
-- Logged‑in users can edit their profile  
-- Logged‑in users can save their preferences
-- Logged‑in users can view their activity history
-- Logged‑in users can delete their account
-- Logged‑in users can log out from any page
+## Guests can:
 
----
+- View help requests (limited: no contact details)
+- View service offers (limited)
+- View categories
+- Access Info and Credits
+- Attempt restricted actions, which prompt login/registration
 
-# 10. Help Requests
+## Logged‑in users can:
 
-- Users can view help requests  
-- Logged‑in users can create help requests  
-- Logged‑in users can filter help requests  
-- Logged‑in users can edit their own help requests  
-- Logged‑in users can delete their own help requests  
-
----
-
-# 11. Service Offers
-
-- Users can view service offers  
-- Logged‑in users can create service offers  
-- Logged‑in users can filter service offers  
-- Logged‑in users can edit their own service offers  
-- Logged‑in users can delete their own service offers  
+- Create, edit, and delete help requests
+- Create, edit, and delete service offers
+- Filter and search content
+- Browse and create categories
+- Access their profile and preferences via the navigation menu
 
 ---
 
-# 12. Categories
+# 7. User Profile (Logged‑in Users Only)
 
-- Logged‑in users can search existing subcategories  
-- The app suggests matching subcategories while typing  
-- Users can create a new subcategory if none match  
-- The app prevents users from creating duplicate subcategories
+Accessible via the navigation menu.
+
+Users can:
+
+- Edit profile
+- View activity history
+- Manage preferences
+- View or upgrade subscription plan
+- Delete account
+- Log out
+
 ---
 
-# 13. Navigation Menu
+# 8. Preferences
 
-- A menu icon appears in the top‑left corner  
-- Tapping the icon opens the side menu  
-- Tapping outside the menu closes it  
-- Selecting a menu item closes the menu  
+Available globally via the `<app-layout>` component.
+
+- **All users** can select a language
+- **All users** can change preferences (language, UI, accessibility)
+- **Logged‑in users** can save their preferences to the backend
+- **Guests** may have preferences stored locally (optional)
+
+---
+
+# 9. Help Requests
+
+Guests:
+
+- Can view help requests (limited)
+
+Logged‑in users:
+
+- Can create, edit, delete, and filter help requests
+
+---
+
+# 10. Service Offers
+
+Guests:
+
+- Can view service offers (limited)
+
+Logged‑in users:
+
+- Can create, edit, delete, and filter service offers
+
+---
+
+# 11. Categories
+
+Guests:
+
+- Can view categories
+
+Logged‑in users:
+
+- Can search categories
+- Can create new subcategories
+- Cannot create duplicates
+
+---
+
+# 12. Navigation Menu
+
+Available on all pages except the splash screen.
+
+Provides access to:
+
+- Home
+- User Profile
+- Help Requests
+- Service Offers
+- Categories
+- Info Page
+- Credits
+- Logout (if logged in)
 
 ---

@@ -1,3 +1,11 @@
 <div class="splash-screen">
-  Splash Page - Loading...
+  Loading...
+
+  <offline-banner></offline-banner>
+
+  @if (!isOnline) {
+    <div class="startup-blocked">
+      Cannot start without an internet connection
+    </div>
+  }
 </div>

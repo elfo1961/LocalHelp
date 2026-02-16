@@ -54,24 +54,29 @@ These limitations motivated the introduction of a dedicated layout feature.
 
 ## 3. The Shared Layout Feature
 
-The new layout system introduces a reusable `<app-layout>` component that contains all global UI elements.
+The new layout system introduces a reusable `<app-layout>` component that contains
+all **shared UI elements** used across multiple pages.
 
 ### What `<app-layout>` contains
 
-- The side menu  
 - The offline banner  
 - The shared header (`<app-header>`)  
-- Any future global UI (e.g., global notifications, theme switchers, language selectors)
+- Shared global-style UI (e.g., language selector, theme switcher, global notifications)
+
+These elements are shared across pages but are **not** global in the Ionic sense
+(they do not live under `<ion-app>`).
 
 ### What `<app-layout>` does **not** contain
 
-- It does **not** wrap `<ion-content>`  
+- It does **not** wrap `<ion-content>` 
+- It does **not** contain the side menu (Ionic requires menus to be direct children of `<ion-app>`)  
 - It does **not** interfere with Ionic’s scroll or routing system  
-- It does **not** replace page‑specific content
+- It does **not** replace page‑specific content  
+- It does **not** contain page‑specific UI features  
+  (page‑scoped toolbars, tabs, or contextual actions must live inside the page folder)
 
-This separation ensures full compatibility with Ionic’s layout engine.
-
----
+This separation ensures full compatibility with Ionic’s layout engine and keeps
+global, shared, and page‑scoped UI cleanly separated.
 
 ## 4. Folder Structure
 

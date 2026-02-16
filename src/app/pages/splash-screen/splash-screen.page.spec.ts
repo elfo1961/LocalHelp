@@ -1,27 +1,41 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { fakeAsync, tick } from '@angular/core/testing';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { SplashScreenPage } from './splash-screen.page';
+import { ConnectivityService } from '../../services/connectivity/connectivity.service';
+import { OfflineBannerComponent } from '../../shared/components/offline-banner/offline-banner.component';
 
-describe('SplashScreenPage', () => {
+describe('SplashScreenPage (offline‑aware)', () => {
 
   let fixture: ComponentFixture<SplashScreenPage>;
   let component: SplashScreenPage;
 
-  // We will spy on Angular Router to verify navigation
   let routerSpy: jasmine.SpyObj<Router>;
+  let online$: BehaviorSubject<boolean>;
+  let mockConnectivity: Partial<ConnectivityService>;
 
   beforeEach(async () => {
 
-    // Create a spy for the Router with only the methods we need
+    // controllable connectivity stream
+    online$ = new BehaviorSubject<boolean>(true);
+
+    mockConnectivity = {
+      onlineChanges$: online$.asObservable(),
+      isOnline: () => online$.value
+    };
+
     routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
     await TestBed.configureTestingModule({
-      imports: [SplashScreenPage], // standalone page
+      imports: [
+        SplashScreenPage,
+        OfflineBannerComponent
+      ],
       providers: [
-        { provide: Router, useValue: routerSpy }
+        { provide: Router, useValue: routerSpy },
+        { provide: ConnectivityService, useValue: mockConnectivity }
       ]
     }).compileComponents();
 
@@ -30,27 +44,76 @@ describe('SplashScreenPage', () => {
   });
 
   // ------------------------------------------------------------
-  // BDD: The splash screen should render a non-interactive UI
+  // BDD: Splash screen UI should render
   // ------------------------------------------------------------
   it('should display the splash screen UI', () => {
     fixture.detectChanges();
-
-    // Look for a root splash element (we will define it later)
-    const splashEl = fixture.debugElement.query(By.css('.splash-screen'));
-
-    // Expect it to exist
-    expect(splashEl).not.toBeNull();
+    const el = fixture.debugElement.query(By.css('.splash-screen'));
+    expect(el).not.toBeNull();
   });
 
   // ------------------------------------------------------------
-  // BDD: The splash screen should automatically navigate
+  // BDD: Offline banner should be present
   // ------------------------------------------------------------
-
-  it('should automatically navigate to the Welcome Page', fakeAsync(() => {
+  it('should include the offline banner component', () => {
     fixture.detectChanges();
-    // Fast‑forward time by 1000 ms
-    tick(1000);
-    // Expect navigation to have been triggered to the Welcome Page
+    const banner = fixture.debugElement.query(By.directive(OfflineBannerComponent));
+    expect(banner).not.toBeNull();
+  });
+
+  // ------------------------------------------------------------
+  // BDD: Should navigate when online
+  // ------------------------------------------------------------
+  it('should navigate to /welcome when online', fakeAsync(() => {
+    online$.next(true);
+    fixture.detectChanges();
+
+    tick(1000); // simulate startup delay
+
     expect(routerSpy.navigateByUrl).toHaveBeenCalledWith('/welcome');
   }));
+
+  // ------------------------------------------------------------
+  // BDD: Should NOT navigate when offline
+  // ------------------------------------------------------------
+  it('should NOT navigate when offline', fakeAsync(() => {
+    online$.next(false);
+    fixture.detectChanges();
+
+    tick(2000); // even after time passes, no navigation
+
+    expect(routerSpy.navigateByUrl).not.toHaveBeenCalled();
+  }));
+
+  // ------------------------------------------------------------
+  // BDD: Should show offline startup warning when offline
+  // ------------------------------------------------------------
+  it('should show an offline startup warning message when offline', () => {
+    online$.next(false);
+    fixture.detectChanges();
+
+    const warning = fixture.debugElement.query(By.css('.startup-blocked'));
+    expect(warning).not.toBeNull();
+  });
+
+  // ------------------------------------------------------------
+  // BDD: Should resume startup when connectivity is restored
+  // ------------------------------------------------------------
+  it('should resume initialization when connectivity is restored', fakeAsync(() => {
+    // start offline
+    online$.next(false);
+    fixture.detectChanges();
+
+    tick(2000);
+    expect(routerSpy.navigateByUrl).not.toHaveBeenCalled();
+
+    // go online
+    online$.next(true);
+    fixture.detectChanges();
+
+    tick(1000); // startup delay
+
+    expect(routerSpy.navigateByUrl).toHaveBeenCalledWith('/welcome');
+  }));
+
 });

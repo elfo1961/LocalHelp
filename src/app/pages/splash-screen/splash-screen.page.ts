@@ -3,24 +3,52 @@ import { Component, OnInit } from '@angular/core';
 
 // import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { ConnectivityService } from '../../services/connectivity/connectivity.service';
+import { OfflineBannerComponent } from '../../shared/components/offline-banner/offline-banner.component';
 
 @Component({
   selector: 'app-splash-screen',
   templateUrl: './splash-screen.page.html',
   styleUrls: ['./splash-screen.page.scss'],
   standalone: true,
-  imports: []
+  imports: [
+    OfflineBannerComponent
+  ]
 })
 export class SplashScreenPage implements OnInit {
+  isOnline = true;
 
   // Inject the Angular Router so we can navigate programmatically
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private connectivity: ConnectivityService
+  ) { }
 
   ngOnInit() {
-    // navigate to the Welcome Page after a short delay to simulate initialization work
-    // This satisfies the BDD test expecting navigateByUrl('/welcome')
+
+    // Track connectivity
+    this.connectivity.onlineChanges$.subscribe(status => {
+      this.isOnline = status;
+
+      // If we just came online, resume startup
+      if (status) {
+        this.startInitialization();
+      }
+    });
+
+    // If already online at startup, begin initialization
+    if (this.connectivity.isOnline()) {
+      this.startInitialization();
+    }
+  }
+
+  private startInitialization() {
+    // Delay simulates startup tasks
     setTimeout(() => {
-      this.router.navigateByUrl('/welcome');
-    }, 1000); // 1000 ms = 1 second
+      // Only navigate if still online
+      if (this.isOnline) {
+        this.router.navigateByUrl('/welcome');
+      }
+    }, 1000);
   }
 }

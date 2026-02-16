@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppHeaderComponent } from '../../components/app-header/app-header.component';
 import { OfflineBannerComponent } from "../../components/offline-banner/offline-banner.component";
+import { AppLanguageSelectorComponent } from '../../components/app-language-selector/app-language-selector.component';
 
 @Component({
   selector: 'app-layout',
@@ -12,6 +13,7 @@ import { OfflineBannerComponent } from "../../components/offline-banner/offline-
     CommonModule,
     AppHeaderComponent,
     OfflineBannerComponent,
+    AppLanguageSelectorComponent
 ]
 })
 export class AppLayoutComponent {

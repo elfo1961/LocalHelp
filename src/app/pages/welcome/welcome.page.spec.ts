@@ -5,7 +5,7 @@ import { WelcomePage } from './welcome.page';
 import { AppLayoutComponent } from '../../shared/layouts/app-layout/app-layout.component';
 import { IonButton, IonContent } from '@ionic/angular/standalone';
 
-fdescribe('WelcomePage', () => {
+describe('WelcomePage', () => {
 
   let fixture: ComponentFixture<WelcomePage>;
   let component: WelcomePage;

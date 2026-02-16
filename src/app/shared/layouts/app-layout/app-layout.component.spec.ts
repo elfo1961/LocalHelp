@@ -43,4 +43,23 @@ describe('AppLayoutComponent', () => {
     const banner = fixture.debugElement.query(By.css('offline-banner'));
     expect(banner).not.toBeNull();
   });
+  it('should render the language selector component', () => {
+    fixture.detectChanges();
+
+    const selector = fixture.debugElement.query(By.css('app-language-selector'));
+    expect(selector).not.toBeNull();
+  });
+
+  it('should not render the ion-menu component', () => {
+    fixture.detectChanges();
+
+    const menu = fixture.debugElement.query(By.css('ion-menu'));
+    expect(menu).toBeNull();
+  });
+it('should not render the ion-content component', () => {
+    fixture.detectChanges();
+
+    const content = fixture.debugElement.query(By.css('ion-content'));
+    expect(content).toBeNull();
+  });
 });

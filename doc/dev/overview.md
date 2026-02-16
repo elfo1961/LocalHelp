@@ -1,126 +1,164 @@
-
 # Technical Notes (For Developers)
 
-This section mirrors the same structure as the [user's overview](../user/overview.md), but focuses on implementation details.
+This document mirrors the User Overview exactly in structure and numbering,
+but focuses on implementation details. It reflects the updated architecture
+defined in the App Flow document.
 
-See also [Master BDD Spec (Jasmine)](../../src/app/localhelp.app.spec.ts)
-for real specs.
+See also the Master BDD Spec for high‑level behavioral definitions.
 
----
-
-## 1. Startup — Technical Notes
-
-- Internet connectivity is checked programmatically at startup  
+Every feature must include a top‑level Feature Spec.
 
 ---
 
-## 2. Splash Screen — Technical Notes
+# 1. Startup — Technical Notes
 
-- Displays a non‑interactive splash screen during initialization  
-- Automatically transitions to the Welcome Page once startup tasks complete  
-
-## 3. Welcome Page — Technical Notes
-
-- Language selection triggers internal localization logic  
-- Navigation routes link to:
--- login page
--- registration page
--- password recovery page
--- credits page
--- home page (guest access with limited functionality)
----
-
-## 4. Connectivity Service — Technical Notes
-
-- The initial connectivity state is read synchronously at startup
-- The app listens to browser‑level online/offline events  
-- The initial state is based on the environment’s online indicator  
-- A stream/observable notifies subscribers of connectivity changes  
-- Native connectivity detection (Capacitor) will be integrated later
-- It exposes the connectivity state so UI components (such as the offline banner) can react to changes  
+- Internet connectivity is checked programmatically at startup.
+- The initial connectivity state is read synchronously.
 
 ---
 
-## 5. Offline Banner — Technical Notes
+# 2. Splash Screen — Technical Notes
 
-- Banner visibility depends on connectivity state  
-- A warning message is displayed dynamically  
-- Styling changes based on online/offline state  
-
----
-
-## 6. Language — Technical Notes
-
-- Language selection updates the app’s translation service  
-- Switching languages triggers UI refresh  
-- User‑generated contents can be translated to the currently selected language by an AI translation service
----
-
-## 7. Authentication — Technical Notes
-
-- Login and registration use the authentication service  
-- User preferences are loaded after successful authentication
-- Password recovery triggers the backend’s reset workflow
-- Social login integrates with external identity providers (implementation pending)
-
----
-## 7.1 Subscription Plans — Technical Notes
-
-- Subscription plans are retrieved from the backend  
-- Logged‑in users can view or upgrade their current plan  
-- Plan changes trigger an update of the user profile and permissions  
+- Displays a non‑interactive splash screen during initialization.
+- Automatically transitions to the Welcome Page once startup tasks complete.
 
 ---
 
-## 8. Terms Acceptance During Registration
+# 3. Welcome Page — Technical Notes
 
-During the registration process, new users must explicitly read and accept:
-
-- **Terms of Use**
-- **Disclaimer**: LocalHelp does not intermediate, guarantee, or take responsibility for agreements between clients and service providers.
-
-Registration cannot be completed unless both items are accepted.
-
----
-
-## 9. User Profile — Technical Notes
-
-- Profile editing updates user data in storage/backend  
-- Preferences are persisted through the user service
-- Activity history is retrieved from the backend and displayed to the user
-- Account deletion permanently removes the user profile and associated data
-- Logout is available globally through the shared header and the navigation menu
+- Minimal page containing:
+  - Language selection (via `<app-layout>`)
+  - Navigation to Enter Page
+  - Navigation to Info Page
+  - Credits
+- Authentication actions are not present here.
+- `<app-layout>` provides global UI (header, language selector, offline banner).
 
 ---
 
-## 10. Help Requests — Technical Notes
+# 4. Enter Page — Technical Notes
 
-- Viewing requests loads data from the backend  
-- Creating/editing/deleting requires authentication  
-- Filtering is applied client‑side or server‑side depending on implementation  
-
----
-
-## 11. Service Offers — Technical Notes
-
-- Same technical structure as Help Requests  
-- CRUD operations require authentication  
+- Centralizes all authentication actions:
+  - Login
+  - Registration
+  - Password recovery
+  - Guest access
+- Uses router navigation for all actions.
+- Simplifies the Welcome Page.
 
 ---
 
-## 12. Categories — Technical Notes
+# 5. Info Page — Technical Notes
 
-- Search uses a lookup against existing subcategories  
-- Suggestions are generated dynamically  
-- New subcategories are created only if no match exists  
-- Duplicate prevention is enforced in the data layer  
+- Provides legal and informational content:
+  - Terms of Use
+  - Disclaimer
+  - FAQ
+  - Help / Support
+  - Subscription Plans (view only)
+- Logged‑in users may select or upgrade subscription plans.
+- Accessible to all users.
+
+---
+
+# 6. Home Page — Technical Notes
+
+Guests:
+
+- Can view help requests and service offers (limited)
+- Cannot access contact details
+- Restricted actions trigger login/register prompts
+
+Logged‑in users:
+
+- Can create, edit, delete, and filter help requests
+- Can create, edit, delete, and filter service offers
+- Can browse and create categories
+- Access profile and preferences via the navigation menu
 
 ---
 
-## 13. Navigation Menu — Technical Notes
+# 7. User Profile — Technical Notes
 
-- The menu icon triggers the side navigation controller  
-- Overlay click detection closes the menu  
-- Selecting a menu item triggers navigation and closes the menu  
+- Accessible only via the navigation menu.
+- Logged‑in users can:
+  - Edit profile
+  - View activity history
+  - Manage preferences
+  - View/upgrade subscription plan
+  - Delete account
+  - Log out
 
 ---
+
+# 8. Preferences — Technical Notes
+
+- Preferences UI is provided globally via `<app-layout>`.
+- All users can change preferences (language, UI, accessibility).
+- Logged‑in users have preferences persisted to the backend.
+- Guests may have preferences stored locally (optional).
+- Language changes trigger UI refresh and translation updates.
+
+---
+
+# 9. Help Requests — Technical Notes
+
+- Viewing requests loads data from the backend.
+- Creating/editing/deleting requires authentication.
+- Filtering may be client‑side or server‑side.
+
+---
+
+# 10. Service Offers — Technical Notes
+
+- Same technical structure as Help Requests.
+- CRUD operations require authentication.
+
+---
+
+# 11. Categories — Technical Notes
+
+- Search uses lookup against existing subcategories.
+- Suggestions are generated dynamically.
+- New subcategories created only if no match exists.
+- Duplicate prevention enforced in the data layer.
+
+---
+
+# 12. Navigation Menu — Technical Notes
+
+- Menu icon triggers the side navigation controller.
+- Overlay click detection closes the menu.
+- Selecting a menu item triggers navigation and closes the menu.
+- Contains links to:
+  - Home
+  - User Profile
+  - Help Requests
+  - Service Offers
+  - Categories
+  - Info Page
+  - Credits
+  - Logout
+
+---
+
+# DEV ONLY INFO
+These sections are not mentioned in the user overview
+
+## Page Layout(s)
+The layout system separates UI into three layers:
+
+- **Global UI** (side menu, router outlet) lives in `app.component`, where Ionic
+  requires it.
+
+- **Shared UI** (header, offline banner, language selector) lives in the
+  `<app-layout>` component under `shared/layouts/`.
+
+- **Page‑scoped UI** (page‑specific toolbars, tabs, contextual actions) must be
+  implemented inside the page folder as separate components. These elements are
+  not part of `<app-layout>`.
+
+This ensures compatibility with Ionic’s layout engine and keeps the architecture
+predictable and maintainable.
+
+See `layout-management.md` for more details.
